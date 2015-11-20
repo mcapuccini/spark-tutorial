@@ -1,4 +1,4 @@
-# spark-tutorial
+# Spark getting started tutorial
 
 This repository contains the code for the video tutorial at this link: 
 
