@@ -4,7 +4,7 @@ are generally applicable, hence the following tutorials represent a good startin
 learning Spark.
 
 ## Getting started
-All of the steps in this sections are shown in this video tutorial: www.youtube.com/watch?v=aB4-RD_MMf0
+All of the steps in this sections are shown in this video tutorial: www.youtube.com/watch?v=aB4-RD_MMf0.
 
 In order to get your hands dirty, writing some code, you first need to have access to a Spark environment. Off course, having access to
 cloud resources or to a Spark bare-metal installation is expensive, and time consuming in terms of set up. Hence, to get started it is
