@@ -4,12 +4,16 @@ are generally applicable, hence the following tutorials represent a good startin
 learning Spark.
 
 ## Getting started
+All of the steps in this sections are shown in this video tutorial: www.youtube.com/watch?v=aB4-RD_MMf0
+
 In order to get your hands dirty, writing some code, you first need to have access to a Spark environment. Off course, having access to
 cloud resources or to a Spark bare-metal installation is expensive, and time consuming in terms of set up. Hence, to get started it is
 preferrable to setup a single machine environment on your computer. This will be useful even later on, when you will deploy your
-Spark applications to a production environmen, as you allways want to test your code locally first. My recipe to get this on your 
+Spark applications to a production environment, as you allways want to test your code locally first. My recipe to get this on your 
 local machine, is a bit unconventional if compared to other Spark's getting started tutorials. I believe that IDEs improve software
-developers productivity, therefore Scala IDE will be the first ingredient (http://scala-ide.org/). Scala IDE, comes with an integrated
-Maven plugin, that you will use in order to pull Spark and all of its dependencies. Fianlly, and optionally, you will push
-your Spark exercises to GitHub. 
+developers productivity, therefore Scala IDE will be the main ingredient (http://scala-ide.org/). Scala IDE, comes with an integrated
+Maven plugin, that you will use in order to pull Spark and all of its dependencies. Fianlly, you will learn how to push your code
+to GitHub using Sala IDE. 
+
+
 
