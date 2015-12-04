@@ -19,7 +19,7 @@ The word count problem is considered the "hello world" of big data analytics. Th
 given a text file, count how many times every single word occurs. 
 
 ```scala
-package my.awesome.package
+package se.uu.farmbio.tutorial
 
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
