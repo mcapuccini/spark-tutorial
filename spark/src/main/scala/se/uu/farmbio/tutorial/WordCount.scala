@@ -1,4 +1,4 @@
-package org.test.spark
+package se.uu.farmbio.tutorial
 
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
