@@ -51,3 +51,4 @@ object WordCount {
 
 }
 ```
+Please watch the getting started video tutorial for further details on the previous code snippet.
