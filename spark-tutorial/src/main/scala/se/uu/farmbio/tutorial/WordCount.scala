@@ -17,13 +17,13 @@ object WordCount {
     val test = sc.textFile("food.txt")
 
     test.flatMap { line => //for each line
-      line.split(" ") //split the line in word by word. NB: we use flatMap, because we return a list
+      line.split(" ") //split the line in word by word. NB: we use flatMap because we return a list
     }
     .map { word => //for each word
-      (word,1) //Return a key/value tuple, with the word as key and 1 as value
+      (word,1) //return a key/value tuple, with the word as key and 1 as value
     }
-    .reduceByKey(_ + _) //Sum all of the value with same key
-    .saveAsTextFile("food.counts.txt") //Save to a text file
+    .reduceByKey(_ + _) //sum all of the value with same key
+    .saveAsTextFile("food.counts.txt") //save to a text file
 
     //Stop the Spark context
     sc.stop
