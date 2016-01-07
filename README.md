@@ -53,4 +53,18 @@ object WordCount {
 ```
 Please watch the getting started video tutorial for further details on the previous code snippet.
 
-##Exercise 1: Consensus problem in Spark
+##Consensus sequence in Spark
+Computing the consensus for a set of sequences is an interesting problem in the bioinfarmatics field (https://en.wikipedia.org/wiki/Consensus_sequence). Given an alignment of several sequences, we want to find the consensus sequence, that is the sequence that has the most frequent residue in each position of the alignment.
+
+
+
+**Exercise 1:** Given a set of sequences, we want to find the consensus sequence, that is the sequence that has the most frequent residue in each position of the alignment. 
+
+**Example:**
+```	
+Input alignment:	ACCTGTTC
+					AACCGGTT
+					AAGGCTCC
+					GCCGTTTC
+**Consensus**:		**AACGGTTC**						
+```
