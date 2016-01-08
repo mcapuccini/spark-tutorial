@@ -57,10 +57,17 @@ Please watch the getting started video tutorial for further details on the previ
 Computing the **consensus** for a sequence alignment is an interesting problem in bioinfarmatics (https://en.wikipedia.org/wiki/Consensus_sequence). Given an alignment of several sequences, we want to find the consensus sequence, that is *the sequence that has the most frequent residue in each position of the alignment*.
 
 >**Example**
+
 >*Sequence 1*: A C C T G
+
 >*Sequence 2*: G G G T C
+
 >*Sequence 3*: A C A T C
+
 >*Sequence 4*: C C G G C
+
 >*Consensus* : **A C G T C**
+
+
 
 
