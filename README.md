@@ -67,11 +67,11 @@ Consensus : A C G T C
 ```
  **Task:** write a Spark program that, given a text file containing a sequence alignment (where each sequence is stored in a separate line), computes the consensus sequence. For simplicity you can assume that there is no gap in the alignment, and that each sequence has same length. You can use this [example file](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/dna.txt) as input in order to test your code. 
 
-**Hints**
+**Hints:**
 
+ 1. In the *word count* example we group by word, as we are in interested in counting word-wise. In the consensus problem we are interested in finding the most frequent residue at each position, so first we need to *group each residue position-wise*. 
+ 2.  Once each residue is nicely grouped by position, we aim to find the most frequent one, in each of the groups. Hence we just need to map every group to the most frequent residue in it. 
+ 3. Remember that we need the consensus to be sorted position-wise. Therefore, remember to keep track of the position of each most frequent residue, so you will be able to use *sortByKey* (RDD transform) in order to sort your result. 
 
-
-
-
-
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/Consensus.scala), but first try it yourself :smirk:
 
