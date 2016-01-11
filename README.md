@@ -62,6 +62,7 @@ Sequence 1: A C C T G
 Sequence 2: G G G T C  
 Sequence 3: A C A T C  
 Sequence 4: C C G G C  
+---------------------
 Consensus : A C G T C
 ```
 
