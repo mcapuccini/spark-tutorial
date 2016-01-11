@@ -7,7 +7,7 @@ In order to get your hands dirty, writing and testing some Spark-based code, you
 Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. 
 
 ### Scala IDE
-If you followed the video tutorial you probably noticed that my recipe to get Spark on your local machine, is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
+If you followed the video tutoria,l you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
 
 Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly.
 
@@ -56,7 +56,7 @@ Please watch the getting started video tutorial for further details on the previ
 ##Exercise 1: Consensus sequence in Spark
 Computing the **consensus** for a sequence alignment is an interesting problem in bioinfarmatics (https://en.wikipedia.org/wiki/Consensus_sequence). Given an alignment of several sequences, we want to find the consensus sequence, that is *the sequence that has the most frequent residue in each position of the alignment*.
 
->**Example**  
+**Example**  
 >`Sequence 1: A C C T G`  
 >`Sequence 2: G G G T C`  
 >`Sequence 3: A C A T C`  
