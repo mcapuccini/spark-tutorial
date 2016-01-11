@@ -65,7 +65,7 @@ Sequence 4: C C G G C
 ---------------------
 Consensus : A C G T C
 ```
- **Task:** write a Spark program that, given a text file containing a sequence alignment (where each sequence is stored in a separate line), computes the consensus sequence. For simplicity you can assume that there is no gap in the alignment, and that each sequence has same length. You can use this [example file](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/dna.txt) as input in order to test your code. 
+ **Task:** write a Spark program that, given a text file containing a sequence alignment (where each sequence is stored in a separate line), computes the consensus sequence. For simplicity you can assume that there is no gap in the alignment, and that each sequence has the same length. You can use this [example file](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/dna.txt) as input in order to test your code. 
 
 **Hints:**
 
