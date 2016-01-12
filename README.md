@@ -83,12 +83,12 @@ In **predictive modelling**, basing on previous observations, we aim to build a 
 In predictive modelling, we call **training examples** the previous observations that we use in order to *train* the predictive model. Each of the training examples stores a system outcome, that we call *label*, and a features vector that describes that outcome. Of course, choosing the right set of features to describe the behaviour we are trying to model is crucial. An example follows. 
 
 **Training examples**
-| Toxic (label)  | Log P (feature 1) | Molar refractivity (feature 2) | ... 
-| -------------  | ----------------- | ------------------------------ |
-| 1.0 (yes)      | 0.450...          | 1.309...                       | ...
-| 0.0 (no)       | 0.346...          | 3.401...                       | ...
-| 1.0 (yes)      | 4.446...          | 2.431...                       | ...
-| 0.0 (no)       | 3.306...          | 0.473...                       | ...
+| Toxic (label)  | Log P (feature 1) | Molar refractivity (feature 2) | ... |
+| -------------  | ----------------- | ------------------------------ | ----|
+| 1.0 (yes)      | 0.450...          | 1.309...                       | ... |
+| 0.0 (no)       | 0.346...          | 3.401...                       | ... |
+| 1.0 (yes)      | 4.446...          | 2.431...                       | ... |
+| 0.0 (no)       | 3.306...          | 0.473...                       | ... |
 
 
 
