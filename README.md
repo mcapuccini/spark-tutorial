@@ -93,7 +93,7 @@ In predictive modelling, we call **training examples** the previous observations
 | ... | ... | ... | ... | ... |
 
 
-Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in Pharmaceutical Bioinformatics.  A linear SVM implementation is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables  
+Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in pharmaceutical bioinformatics.  A linear SVM implementation is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables predictive modelling for pharmaceutical bioinformatics over big training datasets. The following code snippet shows how to train a predictive model using the Spark SVM implementation. 
 
 
 
