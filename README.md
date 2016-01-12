@@ -77,3 +77,6 @@ Consensus : A C G T C
 
 **Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/Consensus.scala), but first try it yourself :smirk:
 
+##Predictive modelling
+In **predictive modelling**, basing on previous observations, we aim to build a statistical model to predict the future behaviour of a certain system. A *predictive model* is a function to predict future outcomes, basing on a number of *features*, which provide the means to describe an event in the system that we aim to model. In *pharmaceutical bioinformatics*,  predictive modelling is used in order to predict molecular behaviours, such as *binding affinity* or *toxicology*. [Molecular descriptors](https://en.wikipedia.org/wiki/Molecular_descriptor) such as [log P](https://en.wikipedia.org/wiki/Log_P), [molar refractivity](https://en.wikipedia.org/wiki/Molar_refractivity), [dipole moment](https://en.wikipedia.org/wiki/Molecular_dipole_moment), [polarizability](https://en.wikipedia.org/wiki/Polarizability), and [molecular signatures](http://www.ncbi.nlm.nih.gov/pubmed/15032522),  are mostly used as features to make up such predictive models. 
+
