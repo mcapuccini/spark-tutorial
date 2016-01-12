@@ -278,12 +278,12 @@ object SVMWithLBFGS {
 
 **Task:** try to run the previous code snippet on your machine. Do you see any improvement in the area under the ROC curve?
 
-##Exercise 2: build a toxicology prediction model using Gradient Boosted Trees
+##Exercise 2: build a toxicology prediction model using Logistic Regression
 
-Linear SVM works good when the examples in the feature space can be separated by a linear hyperplane. However, Spark offers some alternatives to linear machine learning algorithms. One of these is [Gradient Boosted Trees](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) (GBT).
+Spark offers some alternatives to SVM. One of these is [Logistic Regression](http://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression).
 
-**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. How good is the performance?
+**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which one performs best?
 
-**Hints:**  
-1. the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk:   
-2. GBT uses the *majority vote* of a tree ensemble in order to predict the class of a new example. There is no concept of threshold, so the ROC curve doesn't apply here. You might want to evaluate the performance in terms of error rate over the test set.  
+**Hint:** Remember that SGD doesn't perform good with signature data, you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), so you don't have to set up the optimization problem manually (like we did in the SVM example).
+
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/Consensus.scala).
