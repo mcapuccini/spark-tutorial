@@ -188,6 +188,7 @@ object SVM {
 }
 ```
 
+**Task:** try to run the previous code snippet on your machine. How good is the area under the ROC curve?
 
 
 
