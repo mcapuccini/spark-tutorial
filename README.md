@@ -93,6 +93,8 @@ In predictive modelling, we call **training examples** the previous observations
 | ... | ... | ... | ... | ... |
 
 
+Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in Pharmaceutical Bioinformatics.  
+
 
 
 
