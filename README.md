@@ -1,5 +1,5 @@
 # Introduction to predictive modeling in Spark with applications in pharmaceutical bioinformatics
-**Spark** is a genearal cluster computing engine for large-scale data processing. In this repository we store tutorials, exercises, and code snippets, to get started with Spark for predictive modeling. Even if the main focus here is pharmaceutical bioinformatics, the presented methodologies are generally applicable, hence the following tutorials represent a good starting point for everyone is interested in learning Spark. 
+[Spark](http://spark.apache.org/) is a genearal cluster computing engine for large-scale data processing. In this repository we store tutorials, exercises, and code snippets, to get started with Spark for predictive modeling. Even if the main focus here is pharmaceutical bioinformatics, the presented methodologies are generally applicable, hence the following tutorials represent a good starting point for everyone is interested in learning Spark. 
 
 In this repository we code Spark programs in Scala, if you are not familiar with it please first give a look to this [tutorial](https://scalatutorials.com/tour/). 
 
@@ -93,7 +93,7 @@ In predictive modelling, we call **training examples** the previous observations
 | ... | ... | ... | ... | ... |
 
 
-Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in Pharmaceutical Bioinformatics.  
+Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in Pharmaceutical Bioinformatics.  A linear SVM implementation is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables  
 
 
 
