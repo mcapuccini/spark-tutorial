@@ -286,4 +286,4 @@ Spark offers some alternatives to SVM. One of these is [Logistic Regression](htt
 
 **Hint:** Remember that SGD doesn't perform good with signature data, you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), so you don't have to set up the optimization problem manually (like we did in the SVM example).
 
-**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegression.scala).
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegression.scala). As before, try it yourself first!
