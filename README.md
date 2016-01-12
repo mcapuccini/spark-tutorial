@@ -223,7 +223,8 @@ object SVMWithLBFGS {
     //Split the data
     val splits = data.randomSplit(Array(0.8, 0.2), seed = 11L)
     val training = splits(0)
-      .map(x => (x.label, MLUtils.appendBias(x.features))) //adapt to LBFGS API (see Spark docs for further details)
+	  //adapt to LBFGS API (see Spark docs for further details)
+      .map(x => (x.label, MLUtils.appendBias(x.features))) 
       .cache() 
     val test = splits(1)
 
