@@ -84,7 +84,7 @@ In predictive modelling, we call **training examples** the previous observations
 
 **Training examples**  
 
-| Toxic (label)  | Log P (feature 1) | Polarizability (feature 2) | ... |  Dipole moment (fearure n) |
+| Toxicity (label)  | Log P (feature 1) | Polarizability (feature 2) | ... |  Dipole moment (fearure n) |
 | -------------  | ----------------- | -------------------------- | ----| ----  |
 | 1.0 (yes)      | 0.450...          | 1.309...                   | ... | 1.297 |
 | 0.0 (no)       | 0.346...          | 3.401...                   | ... | 0.281 |
