@@ -84,12 +84,12 @@ In predictive modelling, we call **training examples** the previous observations
 
 **Training examples**  
 
-| Toxic (label)  | Log P (feature 1) | Molar refractivity (feature 2) | ... |
-| -------------  | ----------------- | ------------------------------ | ----|
-| 1.0 (yes)      | 0.450...          | 1.309...                       | ... |
-| 0.0 (no)       | 0.346...          | 3.401...                       | ... |
-| 1.0 (yes)      | 4.446...          | 2.431...                       | ... |
-| 0.0 (no)       | 3.306...          | 0.473...                       | ... |
+| Toxic (label)  | Log P (feature 1) | polarizability (feature 2) | ... |  dipole moment (fearure n) |
+| -------------  | ----------------- | -------------------------- | ----| ----  |
+| 1.0 (yes)      | 0.450...          | 1.309...                   | ... | 1.297 |
+| 0.0 (no)       | 0.346...          | 3.401...                   | ... | 0.281 |
+| 1.0 (yes)      | 4.446...          | 2.431...                   | ... | 6.741 |
+| 0.0 (no)       | 3.306...          | 0.473...                   | ... | 1.365 |
 
 
 
