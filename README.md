@@ -282,6 +282,8 @@ object SVMWithLBFGS {
 
 Linear SVM works good when the examples in the feature space can be separated by a linear hyperplane. However, Spark offers some alternatives to linear machine learning algorithms. One of these is [Gradient Boosted Trees](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) (GBT).
 
-**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. Do you observe any difference in terms of performance?
+**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. How good is the performance?
 
-**Hint:** the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk:
+**Hints:** 
+1. the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk: 
+2. GBT uses the *majority vote* of a tree ensemble in order to predict the class of a new example. There is no concept of threshold, so the ROC curve doesn't apply here. You might want to evaluate the performance in terms of error rate over the test set.  
