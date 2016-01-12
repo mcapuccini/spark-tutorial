@@ -80,3 +80,17 @@ Consensus : A C G T C
 ##Predictive modelling in Spark
 In **predictive modelling**, basing on previous observations, we aim to build a statistical model to predict the future behaviour of a certain system. A *predictive model* is a function to predict future outcomes, basing on a number of *features*, which provide the means to describe an event in the system that we aim to model. In *pharmaceutical bioinformatics*,  predictive modelling is used in order to predict molecular behaviours, such as *binding affinity* or *toxicology*. [Molecular descriptors](https://en.wikipedia.org/wiki/Molecular_descriptor) such as [log P](https://en.wikipedia.org/wiki/Log_P), [molar refractivity](https://en.wikipedia.org/wiki/Molar_refractivity), [dipole moment](https://en.wikipedia.org/wiki/Molecular_dipole_moment), [polarizability](https://en.wikipedia.org/wiki/Polarizability), and [molecular signatures](http://www.ncbi.nlm.nih.gov/pubmed/15032522),  are mostly used as features to make up such predictive models. 
 
+In predictive modelling, we call **training examples** the previous observations that we use in order to *train* the predictive model. Each of the training examples stores a system outcome, that we call *label*, and a features vector that describes that outcome. Of course, choosing the right set of features to describe the behaviour we are trying to model is crucial. An example follows. 
+
+**Training examples**
+| Toxic (label)  | Log P (feature 1) | Molar refractivity (feature 2) | ... 
+| -------------  | ----------------- | ------------------------------ |
+| 1.0 (yes)      | 0.450...          | 1.309...                       | ...
+| 0.0 (no)       | 0.346...          | 3.401...                       | ...
+| 1.0 (yes)      | 4.446...          | 2.431...                       | ...
+| 0.0 (no)       | 3.306...          | 0.473...                       | ...
+
+
+
+
+
