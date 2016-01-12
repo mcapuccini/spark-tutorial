@@ -137,8 +137,8 @@ object SVM {
     val test = splits(1)
 
     /*
-     * Train the model using linear SVM. Stocastic Gradient Descent 
-     * (http://spark.apache.org/docs/latest/mllib-linear-methods.html) is used
+     * Train the model using linear SVM. Stochastic Gradient Descent 
+     * (http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) is used
      * as underlying optimization algorithm here. 
      */
     val numIterations = 100 //Stop SGD after 100 iterations
@@ -188,7 +188,102 @@ object SVM {
 }
 ```
 
-**Task:** try to run the previous code snippet on your machine. How good is the area under the ROC curve?
+**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. How good is the area under the ROC curve?
 
+###SVM with LBFGS optimization
+In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) algorithm. This happens to work poorly with molecular signatures, maybe because it is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
 
+```scala
+package se.uu.farmbio.tutorial
 
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.mllib.classification.SVMModel
+import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.optimization.HingeGradient
+import org.apache.spark.mllib.optimization.LBFGS
+import org.apache.spark.mllib.optimization.SimpleUpdater
+import org.apache.spark.mllib.util.MLUtils
+
+object SVMWithLBFGS {
+
+  def main(args: Array[String]) = {
+
+    //Start the Spark context
+    val conf = new SparkConf()
+      .setAppName("SVM")
+      .setMaster("local[*]")
+    val sc = new SparkContext(conf)
+
+    //Load examples
+    val data = MLUtils.loadLibSVMFile(sc, "pubchem.svm")
+    val numFeatures = data.take(1)(0).features.size //Compute number of features for LBFGS
+
+    //Split the data
+    val splits = data.randomSplit(Array(0.8, 0.2), seed = 11L)
+    val training = splits(0)
+	  //adapt to LBFGS API (see Spark docs for further details)
+      .map(x => (x.label, MLUtils.appendBias(x.features))) 
+      .cache() 
+    val test = splits(1)
+
+    /*
+     * Train the model using linear SVM. LBFGS 
+     * (http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) is used
+     * as underlying optimization algorithm here. LBFGS is a relatively new feature
+     * in Spark, and it can be accessed only through low level functions.
+     */
+    
+    //Solve the optimization problem using LBFGS. 
+    //Some knowledge in Optimization is needed to actually understand this, but you can just use it as it :-)
+    val (weightsWithIntercept, _) = LBFGS.runLBFGS(
+      training,
+      new HingeGradient(), //The Hinge objective function is what we aim to optimize in SVM
+      new SimpleUpdater(), //No regularization
+      //Use default paramenters for LBFGS
+      numCorrections=10,
+      convergenceTol=1e-4,
+      maxNumIterations=100,
+      regParam=0, //No regularization
+      initialWeights=Vectors.dense(new Array[Double](numFeatures + 1))) //Use (0,0 ...) vector as first guess
+
+    //Create a SVM model using the weights computed in the previous step  
+    val model = new SVMModel(
+      Vectors.dense(weightsWithIntercept.toArray.slice(0, weightsWithIntercept.size - 1)),
+      weightsWithIntercept(weightsWithIntercept.size - 1))
+
+    //Clear the threshold
+    model.clearThreshold()
+
+    //Compute the distance from the separating hyperplane for each of the test examples
+    val scoreAndLabels = test.map { testExample =>
+      val distance = model.predict(testExample.features)
+      (distance, testExample.label)
+    }
+
+    //Compute the area under the ROC curve using the Spark's BinaryClassificationMetrics class
+    val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+    val auROC = metrics.areaUnderROC()
+
+    println("Area under ROC = " + auROC) //print the area under the ROC
+
+    //Stop the Spark context
+    sc.stop
+
+  }
+
+}
+```
+
+**Task:** try to run the previous code snippet on your machine. Do you see any improvement in the area under the ROC curve?
+
+##Exercise 2: build a toxicology prediction model using Gradient Boosted Trees
+
+Linear SVM works good when the examples in the feature space can be separated by a linear hyperplane. However, Spark offers some alternatives to linear machine learning algorithms. One of these is [Gradient Boosted Trees](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) (GBT).
+
+**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. How good is the performance?
+
+**Hints:**  
+1. the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk:   
+2. GBT uses the *majority vote* of a tree ensemble in order to predict the class of a new example. There is no concept of threshold, so the ROC curve doesn't apply here. You might want to evaluate the performance in terms of error rate over the test set.  
