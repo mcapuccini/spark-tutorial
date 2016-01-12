@@ -40,7 +40,7 @@ object SVM {
 
     /*
      * Train the model using linear SVM. Stocastic Gradient Descent 
-     * (http://spark.apache.org/docs/latest/mllib-linear-methods.html) is used
+     * (http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) is used
      * as underlying optimization algorithm here. 
      */
     val numIterations = 100 //Stop SGD after 100 iterations
