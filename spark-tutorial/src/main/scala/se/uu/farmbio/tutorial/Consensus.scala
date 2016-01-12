@@ -2,6 +2,7 @@ package se.uu.farmbio.tutorial
 
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
+import org.apache.spark.rdd.RDD.rddToPairRDDFunctions
 
 object Consensus {
 
