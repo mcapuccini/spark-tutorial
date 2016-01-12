@@ -137,8 +137,8 @@ object SVM {
     val test = splits(1)
 
     /*
-     * Train the model using linear SVM. Stocastic Gradient Descent 
-     * (http://spark.apache.org/docs/latest/mllib-linear-methods.html) is used
+     * Train the model using linear SVM. Stochastic Gradient Descent 
+     * (http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) is used
      * as underlying optimization algorithm here. 
      */
     val numIterations = 100 //Stop SGD after 100 iterations
@@ -190,5 +190,6 @@ object SVM {
 
 **Task:** try to run the previous code snippet on your machine. How good is the area under the ROC curve?
 
-
+##SVM with LBFGS optimization
+In the previous code snippet we used the Spark linear SVM with the default Stocastic Gradient Descent ()
 
