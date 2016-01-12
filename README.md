@@ -278,4 +278,10 @@ object SVMWithLBFGS {
 
 **Task:** try to run the previous code snippet on your machine. Do you see any improvement in the area under the ROC curve?
 
+##Exercise 2: build a toxicology prediction model using Gradient Boosted Trees
 
+Linear SVM works good when the examples in the feature space can be separated by a linear hyperplane. However, Spark offers some alternatives to linear machine learning algorithms. One of these is [Gradient Boosted Trees](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) (GBT).
+
+**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. Do you observe any difference in terms of performance?
+
+**Hint:** help yourself using the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts).
