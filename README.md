@@ -90,7 +90,10 @@ In predictive modelling, we call **training examples** the previous observations
 | 0.0 (no)       | 0.346...          | 3.401...                   | ... | 0.281 |
 | 1.0 (yes)      | 4.446...          | 2.431...                   | ... | 6.741 |
 | 0.0 (no)       | 3.306...          | 0.473...                   | ... | 1.365 |
-| ... |
+| ... | ... | ... | ... | ... |
+
+
+
 
 
 
