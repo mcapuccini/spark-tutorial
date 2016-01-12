@@ -60,13 +60,13 @@ object SVMWithLBFGS {
     model.clearThreshold()
 
     //Compute the distance from the separating hyperplane for each of the test examples
-    val scoreAndLabels = test.map { testExample =>
+    val distAndLabels = test.map { testExample =>
       val distance = model.predict(testExample.features)
       (distance, testExample.label)
     }
 
     //Compute the area under the ROC curve using the Spark's BinaryClassificationMetrics class
-    val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+    val metrics = new BinaryClassificationMetrics(distAndLabels)
     val auROC = metrics.areaUnderROC()
 
     println("Area under ROC = " + auROC) //print the area under the ROC
