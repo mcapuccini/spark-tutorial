@@ -1,1 +1,4 @@
 /target/
+.cache
+dna.consensus.txt
+food.counts.txt
