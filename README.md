@@ -1,5 +1,5 @@
 # Introduction to predictive modeling in Spark with applications in pharmaceutical bioinformatics
-**Spark** is a genearal cluster computing engine for large-scale data processing. In this repository we store tutorials, exercises, and code snippets, to get started with Spark for predictive modeling. Even if the main focus here is pharmaceutical bioinformatics, the presented methodologies are generally applicable, hence the following tutorials represent a good starting point for everyone is interested in learning Spark. 
+[Spark](http://spark.apache.org/) is a genearal cluster computing engine for large-scale data processing. In this repository we store tutorials, exercises, and code snippets, to get started with Spark for predictive modeling. Even if the main focus here is pharmaceutical bioinformatics, the presented methodologies are generally applicable, hence the following tutorials represent a good starting point for everyone is interested in learning Spark. 
 
 In this repository we code Spark programs in Scala, if you are not familiar with it please first give a look to this [tutorial](https://scalatutorials.com/tour/). 
 
@@ -79,4 +79,23 @@ Consensus : A C G T C
 
 ##Predictive modelling in Spark
 In **predictive modelling**, basing on previous observations, we aim to build a statistical model to predict the future behaviour of a certain system. A *predictive model* is a function to predict future outcomes, basing on a number of *features*, which provide the means to describe an event in the system that we aim to model. In *pharmaceutical bioinformatics*,  predictive modelling is used in order to predict molecular behaviours, such as *binding affinity* or *toxicology*. [Molecular descriptors](https://en.wikipedia.org/wiki/Molecular_descriptor) such as [log P](https://en.wikipedia.org/wiki/Log_P), [molar refractivity](https://en.wikipedia.org/wiki/Molar_refractivity), [dipole moment](https://en.wikipedia.org/wiki/Molecular_dipole_moment), [polarizability](https://en.wikipedia.org/wiki/Polarizability), and [molecular signatures](http://www.ncbi.nlm.nih.gov/pubmed/15032522),  are mostly used as features to make up such predictive models. 
+
+In predictive modelling, we call **training examples** the previous observations that we use in order to *train* the predictive model. Each of the training examples stores a system outcome, that we call *label*, and a features vector that describes that outcome. Of course, choosing the right set of features to describe the behaviour we are trying to model is crucial. An example follows. 
+
+**Training examples**  
+
+| Toxicity (label)  | Log P (feature 1) | Polarizability (feature 2) | ... |  Dipole moment (fearure n) |
+| -------------  | ----------------- | -------------------------- | ----| ----  |
+| 1.0 (yes)      | 0.450...          | 1.309...                   | ... | 1.297 |
+| 0.0 (no)       | 0.346...          | 3.401...                   | ... | 0.281 |
+| 1.0 (yes)      | 4.446...          | 2.431...                   | ... | 6.741 |
+| 0.0 (no)       | 3.306...          | 0.473...                   | ... | 1.365 |
+| ... | ... | ... | ... | ... |
+
+
+Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in pharmaceutical bioinformatics.  A linear SVM implementation is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables predictive modelling for pharmaceutical bioinformatics over big training datasets. The following code snippet shows how to train a predictive model using the Spark SVM implementation. 
+
+
+
+
 
