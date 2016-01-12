@@ -284,4 +284,4 @@ Linear SVM works good when the examples in the feature space can be separated by
 
 **Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. Do you observe any difference in terms of performance?
 
-**Hint:** help yourself using the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts).
+**Hint:** the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk:
