@@ -209,7 +209,7 @@ object SVM {
 
 
 ###SVM with LBFGS optimization
-In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) optimization algorithm. This happens to work poorly with molecular signatures, because SGD is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
+In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) optimization algorithm. This happens to work poorly with molecular datasets, because SGD is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
 
 ```scala
 package se.uu.farmbio.tutorial
@@ -302,6 +302,6 @@ Spark offers some alternatives to SVM. One of these is [Logistic Regression](htt
 
 **Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which does perform best?
 
-**Hint:** Remember that SGD doesn't perform good with signature features, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), hence you don't have to set up the optimization problem manually (like we did in the SVM example).
+**Hint:** Remember that SGD doesn't perform good with molecular datasets, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), hence you don't have to set up the optimization problem manually (like we did in the SVM example).
 
 **Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegression.scala). As before, try it yourself first!
