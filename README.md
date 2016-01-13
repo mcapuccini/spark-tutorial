@@ -4,12 +4,12 @@
 In this repository we code Spark programs in Scala, if you are not familiar with it please first give a look to this [tutorial](https://scalatutorials.com/tour/). 
 
 ## Getting started
-In order to get your hands dirty, writing and testing some Spark-based code, you will first need to access a Spark installation. Off course, cloud resources and Spark bare-metal installations are expensive options, both in terms of money and set up time. Therefore, to get started it is preferable to setup a single machine environment on your computer. This will be useful even later on, when you will deploy your Spark applications to a production environment, as you always want to test your code locally first. 
+In order to get your hands dirty, writing and testing some Spark-based code, you will first need to access a Spark installation. Off course, cloud resources and Spark bare-metal installations are expensive options, both in terms of money and set up time. Therefore, to get started is preferable to setup a single machine environment on your computer. This will be useful even later on, when you will deploy your Spark applications to a production environment, as you always want to test your code locally first. 
 
-Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. 
+Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. In the video, I refer to the this [pom.xml](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/pom.xml) file, you will need to open it and copy/paste some parts of it in your own configuration. 
 
 ### Scala IDE
-If you followed the video tutoria,l you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
+If you followed the video tutorial you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
 
 Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly.
 
@@ -17,6 +17,8 @@ Another important remark is that, using Scala IDE, it is simple to sync your cod
 
 ### Word count
 The **word count** problem is considered to be the *"hello world"* of big data analytics. The task performed by a word count program is very simple: *given a text file, count how many times every word occurs*. 
+
+The main data abstraction in Spark programs is the [Resilient Distributed Dataset](http://spark.apache.org/docs/latest/programming-guide.html#resilient-distributed-datasets-rdds) (RDD), which is a distributed collection of object that can be transformed, via built-in functions, in parallel. The main properties of RDDs are: resilience (or elasticity), fault-tolerance and cacheability. The last property is of particular interest for iterative tasks such as machine learning algorithms. In the following code snippet, we use an RDD, along with its built-in functions, to implement a parallel *word count* program. Since we are using RDDs, such implementation will be out-of-the-box resilient and fault tolerant.  
 
 ```scala
 package se.uu.farmbio.tutorial
@@ -73,14 +75,14 @@ Consensus : A C G T C
 
  1. In the *word count* example we group by word, as we are in interested in counting word-wise. In the consensus problem we are interested in finding the most frequent residue at each position, so first we need to *group each residue position-wise*. 
  2.  Once each residue is nicely grouped by position, we aim to find the most frequent one, in each of the groups. Hence we just need to map every group to the most frequent residue in it. 
- 3. Remember that we need the consensus to be sorted position-wise. Therefore, don't forget to keep track of the position of each most frequent residue, so you will be able to use *sortByKey* (RDD transform) in order to sort your result. 
+ 3. Remember that we need the consensus to be sorted position-wise. Therefore, don't forget to keep track of the position of each most frequent residue, hence you will be able to use [sortByKey](http://spark.apache.org/docs/latest/programming-guide.html#working-with-key-value-pairs) in order to sort your result. 
 
 **Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/Consensus.scala), but first try it yourself :smirk:
 
 ##Predictive modelling in Spark
 In **predictive modelling**, basing on previous observations, we aim to build a statistical model to predict the future behaviour of a certain system. A *predictive model* is a function to predict future outcomes, basing on a number of *features*, which provide the means to describe an event in the system that we aim to model. In *pharmaceutical bioinformatics*,  predictive modelling is used in order to predict molecular behaviours, such as *binding affinity* or *toxicology*. [Molecular descriptors](https://en.wikipedia.org/wiki/Molecular_descriptor) such as [log P](https://en.wikipedia.org/wiki/Log_P), [molar refractivity](https://en.wikipedia.org/wiki/Molar_refractivity), [dipole moment](https://en.wikipedia.org/wiki/Molecular_dipole_moment), [polarizability](https://en.wikipedia.org/wiki/Polarizability), and [molecular signatures](http://www.ncbi.nlm.nih.gov/pubmed/15032522),  are mostly used as features to make up such predictive models. 
 
-In predictive modelling, we call **training examples** the previous observations that we use in order to *train* the predictive model. Each of the training examples stores a system outcome, that we call *label*, and a features vector that describes that outcome. Of course, choosing the right set of features to describe the behaviour that we are trying to model is crucial. An example follows. 
+In predictive modelling, we call **training examples** the previous observations that we use in order to *train* a predictive model. Each of the training examples stores a system outcome, that we call *label*, and a features vector that describes that outcome. Of course, choosing the right set of features to describe the system that we are trying to model is crucial. An example follows. 
 
 **Training examples**  
 
@@ -93,7 +95,7 @@ In predictive modelling, we call **training examples** the previous observations
 | ... | ... | ... | ... | ... |
 
 
-Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in pharmaceutical bioinformatics.  A linear SVM implementation is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables predictive modelling for pharmaceutical bioinformatics over big training datasets. The following code snippet shows how to train a predictive model using the Spark SVM implementation. 
+Basing on the training examples, a variety of **machine leaning** algorithms can be used in order to train a model. [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine) (SVM) have been successfully used in order to build predictive models in pharmaceutical bioinformatics.  A [linear SVM implementation](http://spark.apache.org/docs/latest/mllib-linear-methods.html#linear-support-vector-machines-svms) is provided by the [Spark MLlib](http://spark.apache.org/mllib/) package. This enables predictive modelling for pharmaceutical bioinformatics over big training datasets. The following code snippet shows how to train a predictive model using the Spark SVM implementation. 
  
 ```scala
 package se.uu.farmbio.tutorial
@@ -165,7 +167,7 @@ object SVM {
     model.clearThreshold()
 
     //Compute the distance from the separating hyperplane for each of the test examples
-    val scoreAndLabels = test.map { testExample =>
+    val distAndLabels = test.map { testExample =>
       val distance = model.predict(testExample.features) 
       (distance, testExample.label) 
       /*
@@ -175,7 +177,7 @@ object SVM {
     }
 
     //Compute the area under the ROC curve using the Spark's BinaryClassificationMetrics class
-    val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+    val metrics = new BinaryClassificationMetrics(distAndLabels)
     val auROC = metrics.areaUnderROC()
 
     println("Area under ROC = " + auROC) //print the area under the ROC
@@ -188,10 +190,26 @@ object SVM {
 }
 ```
 
-**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. How good is the area under the ROC curve?
+**Maven Spark MLlib dependency:** in order to run the previous code you need to add the Spark MLlib dependency to your *pom.xml* file.
+
+```xml
+<dependencies>
+	...
+	<dependency>
+		<groupId>org.apache.spark</groupId>
+		<artifactId>spark-mllib_2.10</artifactId>
+		<version>1.6.0</version>
+	</dependency>
+	...
+<dependencies>
+```
+
+**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. This file contains examples where the label represent toxicology, and the features vector a molecular signature. How good is the area under the ROC curve?
+
+
 
 ###SVM with LBFGS optimization
-In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) algorithm. This happens to work poorly with molecular signatures, maybe because it is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
+In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) optimization algorithm. This happens to work poorly with molecular datasets, because SGD is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
 
 ```scala
 package se.uu.farmbio.tutorial
@@ -257,13 +275,13 @@ object SVMWithLBFGS {
     model.clearThreshold()
 
     //Compute the distance from the separating hyperplane for each of the test examples
-    val scoreAndLabels = test.map { testExample =>
+    val distAndLabels = test.map { testExample =>
       val distance = model.predict(testExample.features)
       (distance, testExample.label)
     }
 
     //Compute the area under the ROC curve using the Spark's BinaryClassificationMetrics class
-    val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+    val metrics = new BinaryClassificationMetrics(distAndLabels)
     val auROC = metrics.areaUnderROC()
 
     println("Area under ROC = " + auROC) //print the area under the ROC
@@ -278,12 +296,48 @@ object SVMWithLBFGS {
 
 **Task:** try to run the previous code snippet on your machine. Do you see any improvement in the area under the ROC curve?
 
-##Exercise 2: build a toxicology prediction model using Gradient Boosted Trees
+##Exercise 2: build a toxicology prediction model using Logistic Regression
 
-Linear SVM works good when the examples in the feature space can be separated by a linear hyperplane. However, Spark offers some alternatives to linear machine learning algorithms. One of these is [Gradient Boosted Trees](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) (GBT).
+Spark offers some alternatives to SVM. One of these is [Logistic Regression](http://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression).
 
-**Task:** modify the previous code snippet in order to train a toxicology prediction model using GBT instead of SMV. How good is the performance?
+**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which does perform best?
 
-**Hints:**  
-1. the [Spark GBT documentation](http://spark.apache.org/docs/latest/mllib-ensembles.html#gradient-boosted-trees-gbts) is your friend :smirk:   
-2. GBT uses the *majority vote* of a tree ensemble in order to predict the class of a new example. There is no concept of threshold, so the ROC curve doesn't apply here. You might want to evaluate the performance in terms of error rate over the test set.  
+**Hint:** Remember that SGD doesn't perform good with molecular datasets, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), hence you don't have to set up the optimization problem manually (like we did in the SVM example).
+
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegression.scala). As before, try it yourself first!
+
+##Conformal prediction
+In pharmaceutical bioinformatics, assigning a *confidence level* to predictions plays a major role. In fact, if you think to the toxicology models that we built in the previous examples, due to security reasons, the predictions will be useful in practice only if we can assign to them a valid likelihood of correctness. 
+
+[Conformal prediction](http://www.alrw.net/articles/03.pdf) is a mathematical framework that allows to assign a confidence level to each prediction, basing on a solid background theory. This contrasts to current best-practices (e.g. [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29)) where an overall confidence level for predictions on new examples is hedged basing on previous performance. Given a user-specified significance level 𝜺, instead of producing a single prediction *l*, a **conformal predictor** outputs a **prediction set** *{l<sub>1</sub>, l<sub>2</sub> ... l<sub>n</sub>}*. The major advantage of this approach is that, within the mathematical framework, there is proof that *the true label for a new example will be in the prediction set with probability at least 1 - 𝜺*. This enables to assign confidence *1 - 𝜺* to the produced prediction sets.
+
+**N.B.** Conformal prediction doesn't substitute any of the training algorithms that we explained previously, but rather represent a methodology to apply on top of any machine learning algorithm, to assign confidence levels to predictions. 
+
+###Validity and Efficiency
+We say that a conformal predictor is **valid**, for a certain significance level  𝜺, when the observed error rate is at most 𝜺. This is always true **on average**, by construction. However, a conformal predictor that outputs too big prediction sets is unuseful. For instance, in toxicology modelling we are just interested in **singleton prediction sets**; empty *{}* or both classes *{toxic, non-toxic}* prediction sets means that, at the chosen significance level, the prediction is *rejected*. 
+
+In [binary classification](https://en.wikipedia.org/wiki/Binary_classification) (e.g. toxicology predictive modelling), we define the **efficiency** of a conformal predictor, with respect to a certain significance level, as the observed *singleton prediction set rate*. This measure tells us how useful a conformal predictior is for certain significance level. 
+
+###Conformal prediction in Spark
+In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala University (Sweden), we implemented a Spark-based Conformal Prediction package, to enable predictive modelling with confidence over big datasets. If you aim to use that in one of your Spark projects, you need to add the following plugin repository and dependency to the *pom.xml* file.
+
+```scala  
+<repositories>
+    ...
+    <repository>
+        <id>pele.farmbio.uu.se</id>
+        <url>http://pele.farmbio.uu.se/artifactory/libs-snapshot</url>
+    </repository>
+    ...
+</repositories>
+
+<dependencies>
+...
+    <groupId>se.uu.farmbio</groupId>
+        <artifactId>cp</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+...
+</dependencies>
+```
+
