@@ -11,7 +11,7 @@ Please follow this video tutorial to setup Spark on your local machine: https://
 ### Scala IDE
 If you followed the video tutorial you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
 
-Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly.
+Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly. You can download the [required pom.xml for the tutorial] - TODO.
 
 Another important remark is that, using Scala IDE, it is simple to sync your code to **GitHub**. 
 
