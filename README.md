@@ -314,6 +314,30 @@ In pharmaceutical bioinformatics, assigning a *confidence level* to predictions 
 **N.B.** Conformal prediction doesn't substitute any of the training algorithms that we explained previously, but rather represent a methodology to apply on top of any machine learning algorithm, to assign confidence levels to predictions. 
 
 ###Validity and Efficiency
-We say that a conformal predictor is **valid** when, for a certain significance level  𝜺, the observed error rate is at most 𝜺. This is always true **on average**, by construction. However, a conformal predictor that outputs too big prediction sets is unuseful. For instance, in toxicology modelling we are just interested in **singleton prediction sets**; empty *{}* or both classes *{toxic, non-toxic}* prediction sets means that, at the chosen significance level, the prediction is *rejected*. 
+We say that a conformal predictor is **valid**, for a certain significance level  𝜺, when the observed error rate is at most 𝜺. This is always true **on average**, by construction. However, a conformal predictor that outputs too big prediction sets is unuseful. For instance, in toxicology modelling we are just interested in **singleton prediction sets**; empty *{}* or both classes *{toxic, non-toxic}* prediction sets means that, at the chosen significance level, the prediction is *rejected*. 
 
 In [binary classification](https://en.wikipedia.org/wiki/Binary_classification) (e.g. toxicology predictive modelling), we define the **efficiency** of a conformal predictor, with respect to a certain significance level, as the observed *singleton prediction set rate*. This measure tells us how useful a conformal predictior is for certain significance level. 
+
+###Conformal prediction in Spark
+In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala University (Sweden), we implemented a Spark-based Conformal Prediction package, to enable predictive modelling with confidence over big datasets. If you aim to use that in one of your Spark projects, you need to add the following plugin repository and dependency to the *pom.xml* file.
+
+```scala  
+<repositories>
+    ...
+    <repository>
+        <id>pele.farmbio.uu.se</id>
+        <url>http://pele.farmbio.uu.se/artifactory/libs-snapshot</url>
+    </repository>
+    ...
+</repositories>
+
+<dependencies>
+...
+    <groupId>se.uu.farmbio</groupId>
+        <artifactId>cp</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+...
+</dependencies>
+```
+
