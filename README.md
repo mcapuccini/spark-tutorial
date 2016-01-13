@@ -304,7 +304,7 @@ Spark offers some alternatives to SVM. One of these is [Logistic Regression](htt
 
 **Hint:** Remember that SGD doesn't perform good with molecular datasets, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), hence you don't have to set up the optimization problem manually (like we did in the SVM example).
 
-**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegression.scala). As before, try it yourself first!
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/LogisticRegressionExample.scala). As before, try it yourself first!
 
 ##Conformal prediction
 In pharmaceutical bioinformatics, assigning a *confidence level* to predictions plays a major role. In fact, if you think to the toxicology models that we built in the previous examples, due to security reasons, the predictions will be useful in practice only if we can assign to them a valid likelihood of correctness. 
@@ -319,7 +319,7 @@ We say that a conformal predictor is **valid**, for a certain significance level
 In [binary classification](https://en.wikipedia.org/wiki/Binary_classification) (e.g. toxicology predictive modelling), we define the **efficiency** of a conformal predictor, with respect to a certain significance level, as the observed *singleton prediction set rate*. This measure tells us how useful a conformal predictior is for certain significance level. 
 
 ###Conformal prediction in Spark
-In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala University (Sweden), we implemented a Spark-based Conformal Prediction package, to enable predictive modelling with confidence over big datasets. If you aim to use that in one of your Spark projects, you need to add the following plugin repository and dependency to the *pom.xml* file.
+In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala University (Sweden), we implemented a Spark-based Conformal Prediction package, to enable predictive modelling with confidence over big datasets. If you aim to use that in one of your Spark projects, you need to add the following repository and dependency to the *pom.xml* file.
 
 ```scala  
 <repositories>
@@ -340,4 +340,5 @@ In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala 
 ...
 </dependencies>
 ```
+
 
