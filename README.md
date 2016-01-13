@@ -341,7 +341,7 @@ In the [Pharmaceutical Bioscience Department](http://farmbio.uu.se/) at Uppsala 
 </dependencies>
 ```
 
-In the following code snippet we use our package to train a conformal predictor using SVM as machine leaning algorithm.
+In the following code snippet we use our package to train a conformal predictor, using SVM as machine leaning algorithm.
 
 ```scala 
 package se.uu.farmbio.tutorial
