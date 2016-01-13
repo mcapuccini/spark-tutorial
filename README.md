@@ -190,7 +190,7 @@ object SVM {
 }
 ```
 
-**Maven Spark MLlib dependency:** to run the previous code snippet you need to add the Spark MLlib dependency to your *pom.xml* file.
+**Maven Spark MLlib dependency:** to run the previous code you need to add the Spark MLlib dependency to your *pom.xml* file.
 
 ```xml
 <dependencies>
