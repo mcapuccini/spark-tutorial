@@ -6,7 +6,7 @@ import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS
 import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
 import org.apache.spark.mllib.util.MLUtils
 
-object LogisticRegression {
+object LogisticRegressionExample {
 
   def main(args: Array[String]) = {
 
