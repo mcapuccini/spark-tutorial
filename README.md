@@ -6,12 +6,12 @@ In this repository we code Spark programs in Scala, if you are not familiar with
 ## Getting started
 In order to get your hands dirty, writing and testing some Spark-based code, you will first need to access a Spark installation. Off course, cloud resources and Spark bare-metal installations are expensive options, both in terms of money and set up time. Therefore, to get started is preferable to setup a single machine environment on your computer. This will be useful even later on, when you will deploy your Spark applications to a production environment, as you always want to test your code locally first. 
 
-Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. 
+Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. In the video, I refer to the this [pom.xml](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/pom.xml) file, you will need to open it and copy/paste some parts of it. 
 
 ### Scala IDE
 If you followed the video tutorial you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
 
-Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly. You can download the [required pom.xml for the tutorial] - TODO.
+Scala IDE comes with an integrated **Maven** plugin, that can be used to pull Spark and all of its dependencies. Furthermore, Maven can automatically build your Scala code into production-ready jar packages. All you need to do is to configure your *pom.xml* file properly.
 
 Another important remark is that, using Scala IDE, it is simple to sync your code to **GitHub**. 
 
