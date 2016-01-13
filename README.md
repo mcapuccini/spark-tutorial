@@ -426,4 +426,5 @@ object CPWithSVM {
 
 }
 ```
+**Task:** try to run the previous code snippet on your machine. How does the conformal predictor perform on the training examples?
 
