@@ -300,7 +300,7 @@ object SVMWithLBFGS {
 
 Spark offers some alternatives to SVM. One of these is [Logistic Regression](http://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression).
 
-**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which does perform best?
+**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using logistic regression instead of SMV. Which does perform best?
 
 **Hint:** Remember that SGD doesn't perform good with molecular datasets, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), hence you don't have to set up the optimization problem manually (like we did in the SVM example).
 
@@ -428,3 +428,12 @@ object CPWithSVM {
 ```
 **Task:** try to run the previous code snippet on your machine. How does the conformal predictor perform on the training examples?
 
+
+##Exercise 3: build a toxicology prediction model with Logistic Regression based Conformal Prediction
+Logistic regression is another machine learning algorithm built-in Spark. Since conformal prediction applies to any machine learning algorithm, it is interesting to investigate on how the efficiency changes using logistic regression instead of SVM.
+
+**Task:** starting from the previous code snippet, write a Spark program to train a toxicology prediction model using a logistic regression based conformal prediction. How does the performance compare with the SVM based implementation?
+
+**Hint:** to get the job done quickly, you just need to switch the [LogisticRegression](https://github.com/mcapuccini/spark-cp/blob/master/cp/src/main/scala/se/uu/farmbio/cp/alg/LogisticRegression.scala) class to the SVM class, when you train the inductive conformal predictor. 
+
+**Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/CPWithLR.scala). As usual, it's good to try it yourself first. 
