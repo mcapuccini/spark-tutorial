@@ -75,7 +75,7 @@ Consensus : A C G T C
 
  1. In the *word count* example we group by word, as we are in interested in counting word-wise. In the consensus problem we are interested in finding the most frequent residue at each position, so first we need to *group each residue position-wise*. 
  2.  Once each residue is nicely grouped by position, we aim to find the most frequent one, in each of the groups. Hence we just need to map every group to the most frequent residue in it. 
- 3. Remember that we need the consensus to be sorted position-wise. Therefore, don't forget to keep track of the position of each most frequent residue, hence you will be able to use [sortByKey](http://spark.apache.org/docs/latest/programming-guide.html#working-with-key-value-pairs) (RDD built-in function) in order to sort your result. 
+ 3. Remember that we need the consensus to be sorted position-wise. Therefore, don't forget to keep track of the position of each most frequent residue, hence you will be able to use [sortByKey](http://spark.apache.org/docs/latest/programming-guide.html#working-with-key-value-pairs) in order to sort your result. 
 
 **Solution:** you can give a look to the solution [here](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/src/main/scala/se/uu/farmbio/tutorial/Consensus.scala), but first try it yourself :smirk:
 
