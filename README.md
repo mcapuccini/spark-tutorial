@@ -190,7 +190,23 @@ object SVM {
 }
 ```
 
-**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. How good is the area under the ROC curve?
+**Maven Spark MLlib dependency:** to run the previous code snippet you need to add the Spark MLlib dependency to your *pom.xml* file.
+
+```xml
+<dependencies>
+	...
+	<dependency>
+		<groupId>org.apache.spark</groupId>
+		<artifactId>spark-mllib_2.10</artifactId>
+		<version>1.6.0</version>
+	</dependency>
+	...
+<dependencies>
+```
+
+**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. This file contains examples where the label represent toxicology, and the features vector a molecular signature. How good is the area under the ROC curve?
+
+
 
 ###SVM with LBFGS optimization
 In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) algorithm. This happens to work poorly with molecular signatures, maybe because it is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
