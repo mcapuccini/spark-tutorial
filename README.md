@@ -18,6 +18,8 @@ Another important remark is that, using Scala IDE, it is simple to sync your cod
 ### Word count
 The **word count** problem is considered to be the *"hello world"* of big data analytics. The task performed by a word count program is very simple: *given a text file, count how many times every word occurs*. 
 
+The main data abstraction in Spark programs is the [Resilient Distributed Dataset](http://spark.apache.org/docs/latest/programming-guide.html#resilient-distributed-datasets-rdds) (RDD), which is a distributed collection of object that can be transformed, via built-in functions, in parallel. The main properties of RDD are: resilience (or elasticity), fault-tolerance and cacheability. The last property is of particular interest for iterative tasks such as machine learning algorithms. 
+
 ```scala
 package se.uu.farmbio.tutorial
 
