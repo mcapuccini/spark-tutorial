@@ -300,7 +300,7 @@ object SVMWithLBFGS {
 
 Spark offers some alternatives to SVM. One of these is [Logistic Regression](http://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression).
 
-**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which one performs best?
+**Task:** starting from the previous code snippets, write a Spark program to train a toxicology prediction model using Logistic Regression instead of SMV. Which does perform best?
 
 **Hint:** Remember that SGD doesn't perform good with signature features, therefore you need to use LBFGS instead. Fortunately the community implemented [LogisticRegressionWithLBFGS](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS), so you don't have to set up the optimization problem manually (like we did in the SVM example).
 
