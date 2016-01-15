@@ -215,7 +215,7 @@ In the previous program, the [pubchem.svm](https://raw.githubusercontent.com/mca
 
 The *pubchem.svm* file encodes the examples in the [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) format. In such format each example is stored in a line, where the first number represents the label and the remaining string the features vector in a sparse representation. *LIBSVM format* encodes the feature vector with a series of *X:Y* entries, where *X* represents a position in the vector and *Y* the value at that position. Notice how molecular signatures in *pubchem.svm* result to highly sparse vectors, where over thousands of positions only few actually store a value.
 
-Using molecular signatures, since the data is very sparse, it is important to load the examples in your program using a sparse vector representation. Fortunately, *Spark MLlib* loads *LIBSVM* files using the [LabelledPoint](http://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data type, which can store the feature vector in sparse representation. 
+Using molecular signatures, since the data is very sparse, it is important to load the examples in your program using a sparse vector representation. Fortunately, *Spark MLlib* loads *LIBSVM* files using the [LabelledPoint](http://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data type, which can store a feature vector in sparse representation. 
 
 **Task:** try to run the previous code snippet on your machine, how good is the area under the ROC curve?
 
