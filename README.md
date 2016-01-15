@@ -204,7 +204,7 @@ object SVM {
 <dependencies>
 ```
 
-**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. This file contains examples where the label represent toxicology, and the features vector a molecular signature. Let's give a look to a bunch of examples in *pubchem.svm*: 
+The [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) is used as input, in the previous program. This file contains examples where the labels represent toxicology, and the features vector a molecular signature. Let's give a look to a bunch of examples in *pubchem.svm*: 
 
 ```no-highlight
 0.0 11234:2.0 11482:1.0 12980:1.0 13434:1.0 13858:1.0 23167:1.0 26439:2.0 30078:1.0 30377:1.0 38851:1.0 39621:1.0 41080:2.0 48528:1.0 54325:1.0 54447:2.0 65490:1.0 65991:1.0 71163:1.0 74579:3.0 81127:2.0 86247:1.0 92687:1.0 103188:1.0 103437:2.0 106964:1.0 114196:2.0 121864:1.0 125845:1.0 126651:1.0 132509:1.0 138301:1.0 143915:1.0 145561:1.0 146537:1.0 151499:2.0 152885:1.0 156424:1.0 160914:1.0 163411:2.0 167790:2.0 176961:7.0 178108:2.0 181972:1.0 182021:1.0
@@ -213,9 +213,9 @@ object SVM {
 1.0 2916:1.0 3639:1.0 6834:1.0 9861:1.0 10642:1.0 12333:1.0 19635:1.0 24916:2.0 27547:1.0 28559:1.0 31499:1.0 35183:1.0 41127:1.0 41916:1.0 46296:1.0 48528:1.0 54447:1.0 54860:1.0 56319:1.0 64081:1.0 65740:1.0 68516:1.0 74579:1.0 77274:1.0 79639:1.0 83151:2.0 97238:1.0 104627:2.0 106964:1.0 110246:1.0 117150:1.0 122408:1.0 124873:1.0 131661:1.0 132518:1.0 135412:1.0 135571:1.0 153997:1.0 163026:1.0 163411:2.0 164716:1.0 170384:1.0 172966:1.0 176041:1.0 176961:5.0 177733:1.0
 ```
 
-How good is the area under the ROC curve?
 
 
+**Task:** try to run the previous code snippet on your machine, how good is the area under the ROC curve?
 
 ###SVM with LBFGS optimization
 In the previous code snippet we trained the model using SVM, with the default [Stocastic Gradient Descent](http://spark.apache.org/docs/latest/mllib-optimization.html#stochastic-gradient-descent-sgd) (SGD) optimization algorithm. This happens to work poorly with molecular datasets, because SGD is designed to deal with really huge data (e.g. streams of tweets). However, Spark provides [LBFGS](http://spark.apache.org/docs/latest/mllib-optimization.html#l-bfgs) as an alternative to SGD.  Hence, the previous code can be adapted to use LBFGS in order to improve the model performance. 
