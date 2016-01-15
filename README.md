@@ -204,7 +204,7 @@ object SVM {
 <dependencies>
 ```
 
-The [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) file is used as input, in the previous program. This file contains examples where the labels represent toxicology, and the features vector a molecular signature. Let's give a look to a bunch of examples in *pubchem.svm*: 
+In the previous program, the [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) file is used as input. This file contains examples where the labels represent toxicology, and the features vector a molecular signature. Let's give a look to a bunch of examples in *pubchem.svm*: 
 
 ```no-highlight
 0.0 11234:2.0 11482:1.0 12980:1.0 13434:1.0 13858:1.0 23167:1.0 26439:2.0 30078:1.0 30377:1.0 38851:1.0 39621:1.0 41080:2.0 48528:1.0 54325:1.0 54447:2.0 65490:1.0 65991:1.0 71163:1.0 74579:3.0 81127:2.0 86247:1.0 92687:1.0 103188:1.0 103437:2.0 106964:1.0 114196:2.0 121864:1.0 125845:1.0 126651:1.0 132509:1.0 138301:1.0 143915:1.0 145561:1.0 146537:1.0 151499:2.0 152885:1.0 156424:1.0 160914:1.0 163411:2.0 167790:2.0 176961:7.0 178108:2.0 181972:1.0 182021:1.0
