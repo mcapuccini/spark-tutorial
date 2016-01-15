@@ -213,7 +213,9 @@ The [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/ma
 1.0 2916:1.0 3639:1.0 6834:1.0 9861:1.0 10642:1.0 12333:1.0 19635:1.0 24916:2.0 27547:1.0 28559:1.0 31499:1.0 35183:1.0 41127:1.0 41916:1.0 46296:1.0 48528:1.0 54447:1.0 54860:1.0 56319:1.0 64081:1.0 65740:1.0 68516:1.0 74579:1.0 77274:1.0 79639:1.0 83151:2.0 97238:1.0 104627:2.0 106964:1.0 110246:1.0 117150:1.0 122408:1.0 124873:1.0 131661:1.0 132518:1.0 135412:1.0 135571:1.0 153997:1.0 163026:1.0 163411:2.0 164716:1.0 170384:1.0 172966:1.0 176041:1.0 176961:5.0 177733:1.0
 ```
 
-The *pubchem.svm* file encodes the examples in the [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) format. 
+The *pubchem.svm* file encodes the examples in the [LIBSVM](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) format. In such format each example is stored in a line, where the first number represents the label and the remaining string the features vector in sparse representation. *LIBSVM format* encodes the feature vector with a series of *X:Y* entries, where *X* represents a position in the vector and *Y* the value at that position. Notice how molecular signatures in *pubchem.svm* result to highly sparse vectors, where over thousands of positions only few actually store a value.
+
+Using molecular signature, since the data is very sparse, it is important to load the examples in your program using a sparse vector representation. 
 
 **Task:** try to run the previous code snippet on your machine, how good is the area under the ROC curve?
 
