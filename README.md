@@ -1,7 +1,7 @@
 # Introduction to predictive modeling in Spark with applications in pharmaceutical bioinformatics
 [Spark](http://spark.apache.org/) is a genearal cluster computing engine for large-scale data processing. In this repository we store tutorials, exercises, and code snippets, to get started with Spark for predictive modeling. Even if the main focus here is pharmaceutical bioinformatics, the presented methodologies are generally applicable, hence the following tutorials represent a good starting point for everyone is interested in learning Spark. 
 
-In this repository we code Spark programs in Scala, if you are not familiar with it please first give a look to this [tutorial](https://scalatutorials.com/tour/). 
+In this repository we code Spark programs in Scala, if you are not familiar with it please first give it a shot [here](http://www.scala-tour.com/). 
 
 ## Getting started
 In order to get your hands dirty, writing and testing some Spark-based code, you will first need to access a Spark installation. Off course, cloud resources and Spark bare-metal installations are expensive options, both in terms of money and set up time. Therefore, to get started is preferable to setup a single machine environment on your computer. This will be useful even later on, when you will deploy your Spark applications to a production environment, as you always want to test your code locally first. 
@@ -204,7 +204,15 @@ object SVM {
 <dependencies>
 ```
 
-**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. This file contains examples where the label represent toxicology, and the features vector a molecular signature. How good is the area under the ROC curve?
+**Task:** try to run the previous code snippet on your machine, using [pubchem.svm](https://raw.githubusercontent.com/mcapuccini/spark-tutorial/master/spark-tutorial/pubchem.svm) as input. This file contains examples where the label represent toxicology, and the features vector a molecular signature. Let's give a look to a bunch of examples in *pubchem.svm*: 
+
+```no-highlight
+0.0 11234:2.0 11482:1.0 12980:1.0 13434:1.0 13858:1.0 23167:1.0 26439:2.0 30078:1.0 30377:1.0 38851:1.0 39621:1.0 41080:2.0 48528:1.0 54325:1.0 54447:2.0 65490:1.0 65991:1.0 71163:1.0 74579:3.0 81127:2.0 86247:1.0 92687:1.0 103188:1.0 103437:2.0 106964:1.0 114196:2.0 121864:1.0 125845:1.0 126651:1.0 132509:1.0 138301:1.0 143915:1.0 145561:1.0 146537:1.0 151499:2.0 152885:1.0 156424:1.0 160914:1.0 163411:2.0 167790:2.0 176961:7.0 178108:2.0 181972:1.0 182021:1.0
+1.0 3639:2.0 4450:1.0 5494:2.0 9998:1.0 13951:1.0 18213:1.0 18323:1.0 18797:1.0 22797:1.0 23347:1.0 26441:1.0 26526:2.0 30605:2.0 44244:1.0 54325:2.0 56124:2.0 62618:2.0 67306:1.0 67926:1.0 68056:1.0 68646:1.0 73422:2.0 74579:6.0 76833:1.0 81127:2.0 85885:2.0 92647:1.0 93882:1.0 94432:1.0 96374:2.0 97697:2.0 105394:1.0 106301:1.0 106411:1.0 107633:1.0 111281:1.0 111394:1.0 113160:1.0 118188:1.0 119006:1.0 122468:2.0 136300:1.0 136849:1.0 144309:2.0 149235:1.0 149439:1.0 149956:2.0 158381:2.0 163411:1.0 165703:1.0 175370:2.0 176961:13.0 181732:1.0
+0.0 20307:1.0 23415:1.0 24337:1.0 36469:1.0 37715:1.0 41512:1.0 45035:1.0 48936:1.0 53031:1.0 54447:2.0 58285:1.0 66077:1.0 69559:1.0 70494:1.0 79582:1.0 90338:1.0 91787:1.0 97697:1.0 101222:1.0 102151:1.0 102692:1.0 113325:1.0 114349:1.0 116804:1.0 122408:1.0 122549:1.0 126712:1.0 126904:1.0 137469:1.0 138146:1.0 143846:1.0 144149:1.0 145926:1.0 157873:1.0 163411:1.0 175272:1.0 176882:1.0 176942:1.0
+```
+
+How good is the area under the ROC curve?
 
 
 
