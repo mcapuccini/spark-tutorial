@@ -8,6 +8,8 @@ In order to get your hands dirty, writing and testing some Spark-based code, you
 
 Please follow this video tutorial to setup Spark on your local machine: https://www.youtube.com/watch?v=aB4-RD_MMf0. In the video, I refer to this [pom.xml](https://github.com/mcapuccini/spark-tutorial/blob/master/spark-tutorial/pom.xml) file, you will need to open it and copy/paste some parts of it in your own configuration. 
 
+**Warning:** Windows users need to set up the HADOOP_HOME environment variable, as explained in this [video](https://www.youtube.com/watch?v=UxubzWUo4ag) at minute [2:45](https://www.youtube.com/watch?v=UxubzWUo4ag&t=165).
+
 ### Scala IDE
 If you followed the video tutorial you probably noticed that my recipe to get Spark on your local machine is a bit unconventional. I believe that IDEs improve software developers productivity, therefore **Scala IDE** is the main ingredient (http://scala-ide.org/). 
 
